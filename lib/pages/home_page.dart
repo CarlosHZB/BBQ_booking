@@ -1,7 +1,6 @@
 import 'package:churrasqueira/pages/choose_pade.dart';
-import 'package:flutter/material.dart';
 import 'package:churrasqueira/theme.dart';
-
+import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -33,8 +32,7 @@ class HomePage extends StatelessWidget {
                     "Bem-vindo(a) de volta!",
                     style: TextStyle(fontSize: 25),
                   ),
-                  const Spacer(),
-                  Image.asset('images/logo.png'),
+                  Image.asset('assets/images/logo.png'),
                 ]),
               ),
               Padding(
@@ -68,8 +66,9 @@ class HomePage extends StatelessWidget {
                           child: const Padding(
                             padding: EdgeInsets.all(15.0),
                             child: Center(
-                                child: Text("  Reserva de churrasqueira",
-                                    style: TextStyle(fontSize: 30))),
+                                child: Text("Reserva de churrasqueira",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(fontSize: 18))),
                           ),
                         ),
                       ),
@@ -87,8 +86,7 @@ class HomePage extends StatelessWidget {
                         child: const Padding(
                           padding: EdgeInsets.all(15.0),
                           child: Center(
-                              child: Text("+",
-                                  style: TextStyle(fontSize: 30))),
+                              child: Text("+", style: TextStyle(fontSize: 30))),
                         ),
                       ),
                       Container(
@@ -105,8 +103,7 @@ class HomePage extends StatelessWidget {
                         child: const Padding(
                           padding: EdgeInsets.all(15.0),
                           child: Center(
-                              child: Text("+",
-                                  style: TextStyle(fontSize: 30))),
+                              child: Text("+", style: TextStyle(fontSize: 30))),
                         ),
                       )
                     ],
