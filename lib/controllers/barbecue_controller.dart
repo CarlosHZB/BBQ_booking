@@ -4,18 +4,23 @@ import 'package:flutter/material.dart';
 class BarbecueController extends ChangeNotifier {
   final List<Barbecue> barbecues = [
     Barbecue(
-      label: 'Churasqueira do banana',
+      label: 'Churasqueira Chevers',
     ),
     Barbecue(
-      label: 'Churasqueira do Manuel',
+      label: 'Churasqueira Lux',
     ),
     Barbecue(
-      label: 'Churasqueira do João',
+      label: 'Churasqueira Chomps',
     ),
     Barbecue(
-      label: 'Churasqueira do Carlos',
+      label: 'Churasqueira Inamorata',
+    ),
+    Barbecue(
+      label: 'Churasqueira Aeterna',
     ),
   ];
+
+
 
   void changeStatusBarbecue(index) {
     barbecues[index].isReserved = !barbecues[index].isReserved;

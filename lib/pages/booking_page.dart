@@ -23,7 +23,7 @@ class BookingPage extends StatelessWidget {
               children: List.generate(
                   controller.barbecues.length,
                   (index) => CardBook(
-                        barbecue: controller.barbecues[index],
+                        // barbecue: controller.barbecues[index],
                         index: index,
                       ))),
         ),

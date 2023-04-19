@@ -15,10 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider<BarbecueController>(create: (_) => BarbecueController()),
-      ],
+      Provider.debugCheckInvalidValueType = null;
+    return ChangeNotifierProvider(
+      create: (_) => BarbecueController(),
       child: MaterialApp(
         title: 'Reserva de churrasqueira',
         debugShowCheckedModeBanner: false,

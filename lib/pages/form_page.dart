@@ -16,6 +16,8 @@ String s = "Confirmar reserva";
 class _FormPageState extends State<FormPage> {
   @override
   Widget build(BuildContext context) {
+    final barbecueController = Provider.of<BarbecueController>(context);
+    final barbecue = barbecueController.barbecues[widget.index];
     return Consumer<BarbecueController>(builder: (_, controller, __) {
       return Scaffold(
         backgroundColor: const Color.fromARGB(252, 41, 40, 40),
@@ -54,8 +56,11 @@ class _FormPageState extends State<FormPage> {
                 child: ElevatedButton(
                   onPressed: () {
                     controller.changeStatusBarbecue(widget.index);
+                    Navigator.pop(context);
                   },
-                  child: Text(s),
+                  child: barbecue.isReserved 
+                  ? const Text("Cancelar reserva")
+                  : const Text("Confirmar reserva")
                 ),
               )
             ],

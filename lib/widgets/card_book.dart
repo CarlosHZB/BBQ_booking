@@ -1,16 +1,13 @@
 import 'package:churrasqueira/controllers/barbecue_controller.dart';
-import 'package:churrasqueira/model/barbecue.dart';
 import 'package:churrasqueira/pages/form_page.dart';
 import 'package:churrasqueira/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CardBook extends StatefulWidget {
-  final Barbecue barbecue;
   final int index;
 
-  const CardBook({Key? key, required this.barbecue, required this.index})
-      : super(key: key);
+  const CardBook({Key? key, required this.index}) : super(key: key);
 
   @override
   State<CardBook> createState() => _CardBookState();
@@ -19,9 +16,14 @@ class CardBook extends StatefulWidget {
 class _CardBookState extends State<CardBook> {
   @override
   Widget build(BuildContext context) {
+    final barbecueController = Provider.of<BarbecueController>(context);
+    final barbecue = barbecueController.barbecues[widget.index];
     return InkWell(
       onTap: () {
-        context.read<BarbecueController>().changeStatusBarbecue(widget.index);
+        setState(() {
+          barbecue.isReserved = !barbecue.isReserved;
+          context.read<BarbecueController>().changeStatusBarbecue(widget.index);
+        });
         Navigator.push(
             context,
             MaterialPageRoute(
@@ -36,18 +38,18 @@ class _CardBookState extends State<CardBook> {
         margin: const EdgeInsets.all(11.5),
         decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(10)),
-            color: widget.barbecue.isReserved
+            color: barbecue.isReserved
                 ? Colors.red
                 : MyTheme.color.withOpacity(.2),
             image: const DecorationImage(
                 fit: BoxFit.fitHeight,
-                image: AssetImage('images/churrasqGrande.jpg'),
+                image: AssetImage('assets/images/churrasqGrande.jpg'),
                 alignment: Alignment.topRight)),
         child: Padding(
           padding: const EdgeInsets.only(left: 3.0, top: 3.0),
           child: Center(
             child: Text(
-              widget.barbecue.label,
+              barbecue.label,
               style: const TextStyle(fontSize: 17),
             ),
           ),
